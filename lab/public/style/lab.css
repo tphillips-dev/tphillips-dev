@@ -1,0 +1,170 @@
+/* Lab Theme */
+body {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Courier Prime', monospace;
+}
+
+.lab-nav {
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, var(--dark-bg) 60%, transparent);
+}
+
+.lab-home-link {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.lab-home-link:hover {
+    color: var(--primary-green);
+}
+
+.lab-container {
+    max-width: 1200px;
+    margin: 6rem auto 0;
+    padding: 0 2rem;
+}
+
+.lab-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.lab-header h1 {
+    font-size: 3rem;
+    color: var(--primary-green);
+    position: relative;
+    display: inline-block;
+}
+
+.lab-header h1::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    text-shadow: 3px 3px var(--primary-purple);
+    z-index: -1;
+    animation: glitch 3s infinite;
+}
+
+.lab-subtitle {
+    color: var(--primary-purple);
+    font-style: italic;
+}
+
+.lab-filters {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--primary-purple);
+    color: var(--primary-purple);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--primary-purple);
+    color: var(--dark-bg);
+    border-color: transparent;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+}
+
+.lab-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-bottom: 4rem;
+}
+
+.experiment-card {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-green);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.experiment-card:hover {
+    transform: translateY(-5px);
+}
+
+.experiment-status {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--accent-red);
+    color: var(--text-light);
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.experiment-card h3 {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.experiment-description {
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+    min-height: 60px;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.tech-pill {
+    background: var(--dark-bg);
+    color: var(--primary-purple);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    border: 1px solid var(--primary-green);
+    font-size: 0.8rem;
+}
+
+.lab-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.lab-link {
+    color: var(--primary-purple);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lab-link:hover {
+    color: var(--primary-green);
+}
+
+@keyframes glitch {
+    0% { transform: translate(2px, 0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, 0); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0, 0); }
+}

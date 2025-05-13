@@ -1,0 +1,9 @@
+# robots.txt
+User-agent: *
+Disallow: /lab/*
+Disallow: /public/*
+Disallow: 404.html
+Disallow: LICENSE
+Disallow: README.md
+Disallow: .gitignore
+Disallow: .git
