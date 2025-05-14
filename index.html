@@ -32,6 +32,12 @@
             padding: 2rem 1rem;
         }
 
+        .container a {
+            text-decoration: none;
+            cursor: pointer;
+            color: inherit;
+        }
+
         .profile-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -170,6 +176,13 @@
             border-top: 1px solid rgba(0,0,0,0.1);
         }
 
+        #cv {
+            margin-left: 8px;
+            opacity: 0.4;
+            font-size: 0.9em;
+            vertical-align: middle;
+        }
+
         @media (hover: hover) {
             .btn:hover {
                 transform: translateY(-2px);
@@ -251,7 +264,7 @@
     </main>
 
     <footer class="container">
-        <p>🔍</p>
+        <p><a href="/public/files/cv.pdf" id="cv" target="_blank" aria-label="Download CV">🔍</a></p>
         <p class="copyright">&copy; <span id="year"></span> Tristan Phillips</p>
     </footer>
 
