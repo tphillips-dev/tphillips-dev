@@ -1,340 +1,789 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tristan Phillips</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      :root {
-        --primary: #2a2f35;
-        --accent: #2978b5;
-        --text: #4a4e54;
-        --background: #f8f9fa;
-        --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", system-ui, sans-serif;
-        color: var(--text);
-        background: var(--background);
-        line-height: 1.6;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-      }
-
-      .container a {
-        text-decoration: none;
-        cursor: pointer;
-        color: inherit;
-      }
-
-      .profile-header {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .profile-pic {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        border: 3px solid var(--accent);
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-      }
-
-      .tagline {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        opacity: 0.8;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        margin-bottom: 2rem;
-      }
-
-      .btn {
-        padding: 0.8rem 1.5rem;
-        border-radius: 8px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: var(--transition);
-      }
-
-      .github-btn {
-        background: var(--primary);
-        color: white;
-      }
-
-      .lab-btn {
-        background: var(--accent);
-        color: white;
-      }
-
-      .card {
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      }
-
-      h2 {
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .timeline {
-        position: relative;
-        padding-left: 1.5rem;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 7px;
-        top: 10px;
-        width: 2px;
-        height: calc(100% - 20px);
-        background: var(--accent);
-        opacity: 0.2;
-      }
-
-      .timeline-item {
-        position: relative;
-        padding-left: 2rem;
-        margin-bottom: 2rem;
-      }
-
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 5px;
-        width: 14px;
-        height: 14px;
-        background: var(--accent);
-        border-radius: 50%;
-      }
-
-      .skills-grid {
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-
-      .skill-category {
-        background: var(--background);
-        padding: 1.5rem;
-        border-radius: 8px;
-      }
-
-      .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-      }
-
-      .skill-tags span {
-        background: rgba(41, 120, 181, 0.1);
-        color: var(--accent);
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-      }
-
-      footer {
-        text-align: center;
-        margin-top: 3rem;
-        padding: 2rem 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      #cv {
-        margin-left: 8px;
-        opacity: 0.4;
-        font-size: 0.9em;
-        vertical-align: middle;
-      }
-
-      @media (hover: hover) {
-        .btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-      }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #f8f8f8;
+            --accent: #d64242;
+            --light-gray: #eaeaea;
+            --medium-gray: #cccccc;
+            --dark-gray: #777777;
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+        }
+
+        .scrolled-header {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            padding: 18px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.45rem;
+            text-decoration: none;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            position: relative;
+            font-size: 1.02rem;
+            transition: var(--transition);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            min-height: 100vh;
+            padding: 140px 0 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .grid-card {
+            background: white;
+            border-radius: 16px;
+            padding: 36px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
+        }
+
+        /* Profile Section */
+        .profile {
+            grid-column: 1 / 7;
+            grid-row: 1 / 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+        }
+
+        .profile-header h1 {
+            font-size: 2.95rem;
+            font-weight: 750;
+            line-height: 1.12;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-header h2 {
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 28px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 55px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .profile-header p {
+            color: var(--dark-gray);
+            font-size: 1.08rem;
+            line-height: 1.7;
+            max-width: 95%;
+        }
+
+        .profile-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 500;
+            font-size: 1.04rem;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover i {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            grid-column: 7 / 13;
+            grid-row: 1 / 2;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #ffffff 0%, #fbfbfb 100%);
+        }
+
+        .section-title {
+            font-size: 1.36rem;
+            font-weight: 650;
+            margin-bottom: 32px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -9px;
+            left: 0;
+            width: 44px;
+            height: 3.5px;
+            background: var(--accent);
+        }
+
+        .timeline-items {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 18px;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            z-index: 2;
+        }
+
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 28px;
+            bottom: -17px;
+            width: 2px;
+            background: var(--light-gray);
+        }
+
+        .timeline-item:last-child:after {
+            display: none;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            min-width: 95px;
+            font-size: 1.04rem;
+            color: var(--accent);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 6px;
+            font-size: 1.17rem;
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            font-size: 0.97rem;
+            color: var(--dark-gray);
+            line-height: 1.65;
+        }
+
+        /* Skills Section */
+        .skills {
+            grid-column: 1 / 13;
+            grid-row: 2 / 3;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 28px;
+        }
+
+        .skill-category {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.18rem;
+            font-weight: 650;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent);
+            font-size: 1.15rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 9px 18px;
+            background: var(--light-gray);
+            border-radius: 30px;
+            font-size: 0.96rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .skill:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact {
+            grid-column: 1 / 13;
+            grid-row: 3 / 4;
+            background: linear-gradient(135deg, #ffffff 0%, #fbfbfb 100%);
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            width: 220px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(214, 66, 66, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 22px;
+            color: var(--accent);
+            font-size: 1.7rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            color: var(--dark-gray);
+            font-size: 0.99rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 22px;
+            justify-content: center;
+            margin-top: 45px;
+        }
+
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--light-gray);
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0 35px;
+            text-align: center;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 30px;
+        }
+
+        .copyright {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-grid {
+                padding: 140px 20px 60px;
+            }
+
+            .grid-card {
+                padding: 32px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .profile, .timeline, .skills, .contact {
+                grid-column: 1;
+            }
+
+            .profile {
+                grid-row: 1;
+            }
+
+            .timeline {
+                grid-row: 2;
+            }
+
+            .skills {
+                grid-row: 3;
+            }
+
+            .contact {
+                grid-row: 4;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 25px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 999;
+                gap: 20px;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .profile-header h1 {
+                font-size: 2.4rem;
+            }
+
+            .contact-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-grid {
+                padding: 120px 15px 50px;
+                gap: 20px;
+            }
+
+            .grid-card {
+                padding: 28px;
+                border-radius: 14px;
+            }
+
+            .profile-header h1 {
+                font-size: 2.1rem;
+            }
+
+            .profile-header h2 {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                gap: 6px;
+                padding-left: 25px;
+            }
+
+            .timeline-date {
+                min-width: auto;
+                font-size: 1.05rem;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <header class="container">
-      <div class="profile-header">
-        <img
-          src="/public/img/profilepic.jpg"
-          alt="Tristan Phillips"
-          class="profile-pic"
-        />
-        <h1>Tristan Phillips</h1>
-        <p class="tagline">South African</p>
-        <div class="social-links">
-          <a href="https://github.com/tphillips-dev" class="btn github-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.795 24 17.3 24 12c0-6.627-5.373-12-12-12z"
-              />
-            </svg>
-            GitHub
-          </a>
-          <a href="/lab/" class="btn lab-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                d="M22.2 2.2L19.8 0 8 10.7l3.4 3.5L22.2 2.2zM0 19.8L2.2 22l4.4-4.4-2.3-2.2L0 19.8zM5.9 12c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6-6-2.6-6-6z"
-              />
-            </svg>
-            Lab
-          </a>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">tphillips<span>.dev</span></a>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#journey">Journey</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-      </div>
     </header>
 
-    <main class="container">
-      <section class="card">
-        <h2><span>🧭</span> Professional Journey</h2>
-        <p>
-          Computer Science graduate working in art sales while pursuing a
-          part-time Psychology degree.
-        </p>
-      </section>
-
-      <section class="card">
-        <h2><span>📅</span> Career Timeline</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <h3>Art Sales Assistant <span>2023–Present</span></h3>
-            <ul>
-              <li>E-Commerce Management</li>
-              <li>Marketing Strategy Development</li>
-              <li>Business Operations Optimization</li>
-            </ul>
-          </div>
-          <div class="timeline-item">
-            <h3>Systems Technician <span>2020–2021</span></h3>
-            <ul>
-              <li>Hardware Repair & Network Setup</li>
-              <li>On-site/Remote Support</li>
-            </ul>
-          </div>
+    <!-- Main Grid Layout -->
+    <div class="main-grid">
+        <!-- Profile Card -->
+        <div class="grid-card profile" id="about">
+            <div class="profile-header">
+                <h1>Tristan Phillips</h1>
+                <h2>Creative Technologist</h2>
+                <p>Computer Science graduate working in art sales while pursuing a part-time Psychology degree.</p>
+            </div>
+            <div class="profile-contact">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>South Africa</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@tphillips.dev</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-link"></i>
+                    <span>github.com/tphillips-dev</span>
+                </div>
+            </div>
         </div>
-      </section>
 
-      <section class="card skills-grid">
-        <h2><span>🛠️</span> Technical Stack</h2>
-        <div class="skill-category">
-          <h3>Development</h3>
-          <div class="skill-tags">
-            <span>JavaScript</span>
-            <span>HTML/CSS</span>
-            <span>C++</span>
-            <span>PostgreSQL</span>
-          </div>
+        <!-- Timeline Card -->
+        <div class="grid-card timeline" id="journey">
+            <h3 class="section-title">Career Timeline</h3>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025+</div>
+                    <div class="timeline-content">
+                        <h3>Psychology Studies</h3>
+                        <p>Part-time undergraduate degree</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023+</div>
+                    <div class="timeline-content">
+                        <h3>Art Sales Assistant</h3>
+                        <p>E-Commerce Management, Marketing Strategy, Business Operations</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>Computer Science Graduate</h3>
+                        <p>Bachelor's degree in Computer Science</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2021</div>
+                    <div class="timeline-content">
+                        <h3>Systems Technician</h3>
+                        <p>Hardware Repair, Network Setup, On-site/Remote Support</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="skill-category">
-          <h3>Infrastructure</h3>
-          <div class="skill-tags">
-            <span>Docker</span>
-            <span>VPS Management</span>
-            <span>Domain Management</span>
-          </div>
-        </div>
-      </section>
-    </main>
 
-    <footer class="container">
-      <p>
-        <a href="/cv.html" id="cv" target="_blank" aria-label="Download CV"
-          >🔍</a
-        >
-      </p>
-      <p class="copyright">&copy; <span id="year"></span> Tristan Phillips</p>
+        <!-- Skills Card -->
+        <div class="grid-card skills" id="skills">
+            <h3 class="section-title">Technical Stack</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Development</h3>
+                    <div class="skill-list">
+                        <div class="skill">JavaScript</div>
+                        <div class="skill">HTML/CSS</div>
+                        <div class="skill">C++</div>
+                        <div class="skill">PostgreSQL</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Infrastructure</h3>
+                    <div class="skill-list">
+                        <div class="skill">Docker</div>
+                        <div class="skill">VPS Management</div>
+                        <div class="skill">Domain Management</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Systems</h3>
+                    <div class="skill-list">
+                        <div class="skill">Hardware Repair</div>
+                        <div class="skill">Network Setup</div>
+                        <div class="skill">Remote Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="grid-card contact" id="contact">
+            <h3 class="section-title">Get In Touch</h3>
+            <div class="contact-content">
+                <p>Available for opportunities and collaborations</p>
+                <div class="contact-options">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <div class="contact-info">hello@tphillips.dev</div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <div class="contact-info">tphillips-dev</div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/tphillips-dev/"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="copyright">&copy; tphillips.dev</p>
+        </div>
     </footer>
 
     <script>
-      // Simple year update
-      document.getElementById("year").textContent = new Date().getFullYear();
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
 
-      // Add scroll animations
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = "translateY(0)";
-          }
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
-      });
 
-      document.querySelectorAll(".card").forEach((card) => {
-        card.style.opacity = 0;
-        card.style.transform = "translateY(20px)";
-        card.style.transition =
-          "opacity 0.6s ease-out, transform 0.6s ease-out";
-        observer.observe(card);
-      });
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled-header');
+            } else {
+                header.classList.remove('scrolled-header');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Card hover animations
+        const cards = document.querySelectorAll('.grid-card, .contact-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+                card.style.boxShadow = '0 18px 45px rgba(0, 0, 0, 0.09)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.04)';
+            });
+        });
     </script>
-    <!-- Matomo -->
-    <script>
-      var _paq = (window._paq = window._paq || []);
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      (function () {
-        var u = "//analytics.tphillips.dev/";
-        _paq.push(["setTrackerUrl", u + "matomo.php"]);
-        _paq.push(["setSiteId", "1"]);
-        var d = document,
-          g = d.createElement("script"),
-          s = d.getElementsByTagName("script")[0];
-        g.async = true;
-        g.src = u + "matomo.js";
-        s.parentNode.insertBefore(g, s);
-      })();
-    </script>
-    <!-- End Matomo Code -->
-  </body>
+</body>
 </html>
